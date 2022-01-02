@@ -1,4 +1,4 @@
-package net.tnemc.core.common.api.hooks;
+package net.tnemc.bukkit.hooks.impl;
 
 import net.milkbowl.vault.economy.Economy;
 import net.tnemc.core.TNE;

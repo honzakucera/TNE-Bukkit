@@ -1,7 +1,5 @@
-package net.tnemc.core.common.api;
+package net.tnemc.bukkit.hooks;
 
-import net.tnemc.core.TNE;
-import net.tnemc.core.common.CurrencyManager;
 import net.tnemc.core.economy.EconomyAPI;
 import net.tnemc.core.economy.response.AccountResponse;
 import net.tnemc.core.economy.response.EconomyResponse;

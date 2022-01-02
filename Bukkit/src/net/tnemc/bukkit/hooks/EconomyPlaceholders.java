@@ -1,4 +1,4 @@
-package net.tnemc.core.common.api;
+package net.tnemc.bukkit.hooks;
 
 import me.clip.placeholderapi.expansion.PlaceholderExpansion;
 import net.tnemc.core.TNE;

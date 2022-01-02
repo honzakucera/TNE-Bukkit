@@ -1,5 +1,6 @@
 package net.tnemc.core.common;
 
+import net.tnemc.core.TNECore;
 import net.tnemc.core.common.currency.Currency;
 import net.tnemc.core.common.currency.CurrencyType;
 import org.jetbrains.annotations.NotNull;
@@ -19,7 +20,7 @@ public class CurrencyManager {
   }
 
   public Currency getDefault(@NotNull String world) {
-    final String worldGroup = EconomyManager.connector().worldConnectionProvider().resolveWorld(world);
+    final String worldGroup = TNECore.connector().worldConnectionProvider().resolveWorld(world);
 
     return currencies.get(worldGroup);
   }

@@ -1,24 +1,11 @@
 package net.tnemc.core.common.api;
 
-import com.github.tnerevival.TNELib;
-import net.tnemc.core.TNE;
-import net.tnemc.core.common.WorldVariant;
-import net.tnemc.core.common.account.TNEAccount;
-import net.tnemc.core.common.account.WorldFinder;
 import net.tnemc.core.common.currency.CurrencyType;
-import net.tnemc.core.common.currency.TNECurrency;
-import net.tnemc.core.common.currency.TNETier;
 import net.tnemc.core.common.currency.formatter.CurrencyFormatter;
-import net.tnemc.core.common.transaction.TNETransaction;
-import net.tnemc.core.common.transaction.result.TransactionResult;
 import net.tnemc.core.common.transaction.tax.TaxEntry;
 import net.tnemc.core.common.transaction.tax.TaxType;
 import net.tnemc.core.common.transaction.type.TransactionType;
 import net.tnemc.core.common.utils.TopBalance;
-import net.tnemc.core.economy.EconomyAPI;
-import net.tnemc.core.event.TNEEvent;
-import org.bukkit.Bukkit;
-import org.bukkit.World;
 
 import java.math.BigDecimal;
 import java.sql.SQLException;
@@ -39,6 +26,8 @@ import java.util.UUID;
  * Creative Commons, PO Box 1866, Mountain View, CA 94042, USA.
  * Created by Daniel on 8/3/2017.
  */
+
+@Deprecated
 public class TNEAPI {
 
   private TNE plugin;
@@ -47,9 +36,6 @@ public class TNEAPI {
     this.plugin = plugin;
   }
 
-  public void callEvent(TNEEvent event) {
-    Bukkit.getPluginManager().callEvent(event);
-  }
 
   public boolean hasModule(String name) {
     return TNE.loader().hasModule(name);

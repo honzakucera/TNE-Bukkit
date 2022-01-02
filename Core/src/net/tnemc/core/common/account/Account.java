@@ -1,5 +1,6 @@
 package net.tnemc.core.common.account;
 
+import net.tnemc.core.TNECore;
 import net.tnemc.core.common.EconomyManager;
 import net.tnemc.core.common.account.balance.HoldingsManager;
 import net.tnemc.core.common.currency.Currency;
@@ -105,11 +106,11 @@ public class Account implements Datable<String, Account> {
   }
 
   public String resolveWorld(@NotNull String world) {
-    return EconomyManager.connector().worldConnectionProvider().resolveWorld(world);
+    return TNECore.connector().worldConnectionProvider().resolveWorld(world);
   }
 
   public String world() {
-    return resolveWorld(EconomyManager.connector().defaultWorld());
+    return resolveWorld(TNECore.connector().defaultWorld());
   }
 
   /**

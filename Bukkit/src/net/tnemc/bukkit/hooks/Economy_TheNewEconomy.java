@@ -1,4 +1,4 @@
-package net.tnemc.core.common.api;
+package net.tnemc.bukkit.hooks;
 
 import net.milkbowl.vault.economy.Economy;
 import net.milkbowl.vault.economy.EconomyResponse;

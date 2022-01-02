@@ -1,6 +1,6 @@
 package net.tnemc.core.common.account;
 
-import net.tnemc.core.common.EconomyManager;
+import net.tnemc.core.TNECore;
 import net.tnemc.core.common.compatibility.PlayerProvider;
 
 import java.util.Date;
@@ -19,6 +19,12 @@ public class PlayerAccount extends Account {
   protected long lastOnline;
   protected String language;
 
+  //Is this player logging in currently?
+  protected boolean loggingIn;
+
+  //Has this player died?
+  protected boolean dead;
+
   public PlayerAccount(UUID identifier, String name) {
     super(identifier, name);
 
@@ -29,7 +35,7 @@ public class PlayerAccount extends Account {
 
   @Override
   public String world() {
-    return EconomyManager.connector().worldConnectionProvider().resolveWorld(identifier);
+    return TNECore.connector().worldConnectionProvider().resolveWorld(identifier);
   }
 
   public boolean isOnline() {
@@ -43,7 +49,7 @@ public class PlayerAccount extends Account {
    *         Optional if no player is located.
    */
   public Optional<PlayerProvider> getPlayer() {
-    return EconomyManager.instance().findPlayer(identifier);
+    return TNECore.instance().findPlayer(identifier);
   }
 
   public long getLastOnline() {
@@ -60,5 +66,21 @@ public class PlayerAccount extends Account {
 
   public void setLanguage(String language) {
     this.language = language;
+  }
+
+  public boolean isLoggingIn() {
+    return loggingIn;
+  }
+
+  public void setLoggingIn(boolean loggingIn) {
+    this.loggingIn = loggingIn;
+  }
+
+  public boolean isDead() {
+    return dead;
+  }
+
+  public void setDead(boolean dead) {
+    this.dead = dead;
   }
 }

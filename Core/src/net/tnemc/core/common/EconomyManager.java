@@ -3,15 +3,9 @@ package net.tnemc.core.common;
 import net.tnemc.core.common.account.Account;
 import net.tnemc.core.common.account.NonPlayerAccount;
 import net.tnemc.core.common.account.SharedAccount;
-import net.tnemc.core.common.compatibility.PlayerProvider;
-import net.tnemc.core.common.compatibility.ServerConnector;
-import net.tnemc.core.common.io.StorageManager;
 import net.tnemc.core.common.io.cache.RefreshConcurrentMap;
 import net.tnemc.core.common.io.cache.listeners.AccountMapListener;
-import org.jetbrains.annotations.NotNull;
 
-import java.util.Optional;
-import java.util.UUID;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.regex.Pattern;
 
@@ -34,18 +28,14 @@ public class EconomyManager {
    */
   private static EconomyManager instance;
 
-  private StorageManager saveManager;
   private CurrencyManager currencyManager;
-
-  private ServerConnector serverConnector;
 
   private boolean consolidate = false;
   private boolean cache = true;
 
-  public EconomyManager(ServerConnector serverConnector) {
+  public EconomyManager() {
     instance = this;
     this.currencyManager = new CurrencyManager();
-    this.serverConnector = serverConnector;
 
     accounts = new RefreshConcurrentMap<>(true, 300, new AccountMapListener());
   }
@@ -64,18 +54,6 @@ public class EconomyManager {
 
   public CurrencyManager currencyManager() {
     return currencyManager;
-  }
-
-  public StorageManager storage() {
-    return saveManager;
-  }
-
-  public static ServerConnector connector() {
-    return instance.serverConnector;
-  }
-
-  public Optional<PlayerProvider> findPlayer(@NotNull UUID identifier) {
-    return connector().findPlayer(identifier);
   }
 
   public boolean canConsolidate() {
