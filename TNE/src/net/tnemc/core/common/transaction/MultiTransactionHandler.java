@@ -40,7 +40,7 @@ public class MultiTransactionHandler {
     this.messageReceiver = initiator;
 
     if(currency.getTNEMinorTiers().size() <= 0) {
-      this.amount = this.amount.setScale(0, BigDecimal.ROUND_FLOOR);
+      this.amount = this.amount.setScale(0, BigDecimal.ROUND_CEILING);
     }
   }
 
@@ -54,7 +54,7 @@ public class MultiTransactionHandler {
     this.messageReceiver = initiator;
 
     if(currency.getTNEMinorTiers().size() <= 0) {
-      this.amount = this.amount.setScale(0, BigDecimal.ROUND_FLOOR);
+      this.amount = this.amount.setScale(0, BigDecimal.ROUND_CEILING);
     }
   }
 
@@ -68,7 +68,7 @@ public class MultiTransactionHandler {
     this.messageReceiver = messageReceiver;
 
     if(currency.getTNEMinorTiers().size() <= 0) {
-      this.amount = this.amount.setScale(0, BigDecimal.ROUND_FLOOR);
+      this.amount = this.amount.setScale(0, BigDecimal.ROUND_CEILING);
     }
   }
 
